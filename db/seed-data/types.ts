@@ -1,4 +1,4 @@
-import { PokemonTypeMap } from './interfaces/pokemon'
+import { PokemonTypeMap } from '../../shared-types/pokemon'
 
 export const types: PokemonTypeMap = {
   normal: {
