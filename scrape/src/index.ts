@@ -1,7 +1,7 @@
 import { launch } from 'puppeteer'
 
 import { Pokemon } from '../../shared-types/pokemon'
-import { handlePerPokemon } from './helpers/'
+import { handlePerPokemonPage, loadAllPokemon } from './helpers/'
 
 const pokemon: Pokemon[] = []
 
@@ -17,8 +17,11 @@ const main = async () => {
 
   await page.setViewport({ width: 1792, height: 1200 })
 
+  await loadAllPokemon(page)
+
+
   for (let iterator = 0; iterator < 100; iterator++) {
-    await handlePerPokemon(page, iterator, pokemon)
+    await handlePerPokemonPage(page, iterator, pokemon)
     console.log('pokemon', pokemon[iterator])
   }
 }

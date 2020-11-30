@@ -19,66 +19,39 @@ export const loadAllPokemon = async (page: Page) => {
 
 export const handlePerPokemonPage = async (page: Page, index: number, pokemon: Pokemon[]): Promise<void> => {
   const pokemonNumber = index + 1
-  await page.waitForSelector(`.results > li:nth-child(${pokemonNumber}) > .pokemon-info > .abilities`)
+  const cssSelectorForTypes = `.results > li:nth-child(${pokemonNumber}) > .pokemon-info > .abilities`
+  await page.waitForSelector(cssSelectorForTypes)
+  await page.hover(cssSelectorForTypes)
 
-  const currentPokemon = await constructPokemon(page)
+  // await page.click('.results > li:nth-child(1) > .pokemon-info > .abilities > .background-color-grass')
 
-  pokemon.push(currentPokemon)
-
-  await page.goBack()
-  // await page.waitForNavigation()
-
-  await loadAllPokemon(page)
-  // await page.waitForNavigation()
-}
-
-export const handlePerPokemon = async (page: Page, index: number, pokemon: Pokemon[]): Promise<void> => {
-  const pokemonNumber = index + 1
-  await page.waitForSelector(`.results > li:nth-child(${pokemonNumber}) > figure > a > img`)
-  await page.click(`.results > li:nth-child(${pokemonNumber}) > figure > a > img`)
-  // const selectorPath = `.results > li:nth-child(${pokemonNumber}) > .pokemon-info > .abilities`
-  // await page.waitForSelector(selectorPath)
-  // await page.click(selectorPath)
-
-  const currentPokemon = await constructPokemon(page)
+  const currentPokemon = await constructPokemon(page, cssSelectorForTypes, pokemonNumber)
 
   pokemon.push(currentPokemon)
-
-  await page.goBack()
-  // await page.waitForNavigation()
-
-  await loadAllPokemon(page)
-  // await page.waitForNavigation()
 }
 
-const constructPokemon = async (page: Page): Promise<Pokemon> => {
-  await page.waitForSelector('.pokedex-pokemon-pagination-title')
-  const nameElement = await page.$('.pokedex-pokemon-pagination-title div')
-  // console.log(elm)
-  const text = await page.evaluate(elm => elm.innerText, nameElement)
+const constructPokemon = async (page: Page, cssSelectorForTypes: string, pokemonNumber: number): Promise<Pokemon> => {
+  const cssSelectorForPokemonName = `.section > .results > li:nth-child(${pokemonNumber}) > .pokemon-info > h5`
+  await page.waitForSelector(cssSelectorForPokemonName)
+  const nameElements = await page.$(cssSelectorForPokemonName)
+  const pokemonName = await page.evaluate(elm => elm.innerText, nameElements)
 
-  const [name, numberWithOctothorpe] = text.trim().split(' ')
-
-  const id = numberWithOctothorpe.split('#')[1]
-
-  // Get Types
-  const typesElement = await page.$('.dtm-type ul')
-  const typesRawText = await page.evaluate(elm => elm.innerText, typesElement)
-  const pokemonTypes = lowercaseEachElementInArray(typesRawText.split('\n'))
-
-  // Get Weaknesses
-  const weaknessesElement = await page.$('.dtm-weaknesses ul')
-  const weaknessRawText = await page.evaluate(elm => elm.innerText, weaknessesElement)
-  const weaknesses = lowercaseEachElementInArray(weaknessRawText.split('\n'))
+  const typeElements = await page.$$(cssSelectorForTypes)
+  const pokemonTypes: PokemonTypeName[] = []
+  for (let name of typeElements) {
+    const text = await page.evaluate(elm => elm.innerText, name)
+    console.log('text', text)
+    pokemonTypes.push(text.toLowerCase())
+  }
 
   const resistant = constructResistantToArray(pokemonTypes)
 
   return {
-    id,
-    name,
+    id: pokemonNumber,
+    name: pokemonName,
     types: pokemonTypes,
     resistant,
-    weaknesses: weaknesses,
+    weaknesses: [],
   }
 }
 
