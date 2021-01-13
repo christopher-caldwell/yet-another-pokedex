@@ -1,0 +1,678 @@
+[
+  {
+    "id": 1,
+    "name": "bulbasaur",
+    "types": ["grass", "poison"],
+    "resistant": ["water", "electric", "grass", "ground", "fighting", "poison", "bug", "fairy"],
+    "weaknesses": ["fire", "ice", "poison", "flying", "bug", "ground", "psychic"]
+  },
+  {
+    "id": 2,
+    "name": "ivysaur",
+    "types": ["grass", "poison"],
+    "resistant": ["water", "electric", "grass", "ground", "fighting", "poison", "bug", "fairy"],
+    "weaknesses": ["fire", "ice", "poison", "flying", "bug", "ground", "psychic"]
+  },
+  {
+    "id": 3,
+    "name": "venusaur",
+    "types": ["grass", "poison"],
+    "resistant": ["water", "electric", "grass", "ground", "fighting", "poison", "bug", "fairy"],
+    "weaknesses": ["fire", "ice", "poison", "flying", "bug", "ground", "psychic"]
+  },
+  {
+    "id": 4,
+    "name": "charmander",
+    "types": ["fire"],
+    "resistant": ["fire", "grass", "ice", "bug", "steel", "fairy"],
+    "weaknesses": ["water", "ground", "rock"]
+  },
+  {
+    "id": 5,
+    "name": "charmeleon",
+    "types": ["fire"],
+    "resistant": ["fire", "grass", "ice", "bug", "steel", "fairy"],
+    "weaknesses": ["water", "ground", "rock"]
+  },
+  {
+    "id": 6,
+    "name": "charizard",
+    "types": ["fire", "flying"],
+    "resistant": ["fire", "grass", "ice", "bug", "steel", "fairy", "fighting"],
+    "weaknesses": ["water", "ground", "rock", "electric", "ice"]
+  },
+  {
+    "id": 7,
+    "name": "squirtle",
+    "types": ["water"],
+    "resistant": ["fire", "water", "ice", "steel"],
+    "weaknesses": ["electric", "grass"]
+  },
+  {
+    "id": 8,
+    "name": "wartortle",
+    "types": ["water"],
+    "resistant": ["fire", "water", "ice", "steel"],
+    "weaknesses": ["electric", "grass"]
+  },
+  {
+    "id": 9,
+    "name": "blastoise",
+    "types": ["water"],
+    "resistant": ["fire", "water", "ice", "steel"],
+    "weaknesses": ["electric", "grass"]
+  },
+  {
+    "id": 10,
+    "name": "caterpie",
+    "types": ["bug"],
+    "resistant": ["grass", "fighting", "ground"],
+    "weaknesses": ["fire", "flying", "rock"]
+  },
+  {
+    "id": 11,
+    "name": "metapod",
+    "types": ["bug"],
+    "resistant": ["grass", "fighting", "ground"],
+    "weaknesses": ["fire", "flying", "rock"]
+  },
+  {
+    "id": 12,
+    "name": "butterfree",
+    "types": ["bug", "flying"],
+    "resistant": ["grass", "fighting", "ground", "bug"],
+    "weaknesses": ["fire", "flying", "rock", "electric", "ice"]
+  },
+  {
+    "id": 13,
+    "name": "weedle",
+    "types": ["bug", "poison"],
+    "resistant": ["grass", "fighting", "ground", "poison", "bug", "fairy"],
+    "weaknesses": ["fire", "flying", "rock", "ground", "psychic"]
+  },
+  {
+    "id": 14,
+    "name": "kakuna",
+    "types": ["bug", "poison"],
+    "resistant": ["grass", "fighting", "ground", "poison", "bug", "fairy"],
+    "weaknesses": ["fire", "flying", "rock", "ground", "psychic"]
+  },
+  {
+    "id": 15,
+    "name": "beedrill",
+    "types": ["bug", "poison"],
+    "resistant": ["grass", "fighting", "ground", "poison", "bug", "fairy"],
+    "weaknesses": ["fire", "flying", "rock", "ground", "psychic"]
+  },
+  {
+    "id": 16,
+    "name": "pidgey",
+    "types": ["normal", "flying"],
+    "resistant": ["grass", "fighting", "bug"],
+    "weaknesses": ["electric", "ice", "rock"]
+  },
+  {
+    "id": 17,
+    "name": "pidgeotto",
+    "types": ["normal", "flying"],
+    "resistant": ["grass", "fighting", "bug"],
+    "weaknesses": ["electric", "ice", "rock"]
+  },
+  {
+    "id": 18,
+    "name": "pidgeot",
+    "types": ["normal", "flying"],
+    "resistant": ["grass", "fighting", "bug"],
+    "weaknesses": ["electric", "ice", "rock"]
+  },
+  { "id": 19, "name": "rattata", "types": ["normal"], "resistant": [], "weaknesses": [] },
+  { "id": 20, "name": "raticate", "types": ["normal"], "resistant": [], "weaknesses": [] },
+  {
+    "id": 21,
+    "name": "spearow",
+    "types": ["normal", "flying"],
+    "resistant": ["grass", "fighting", "bug"],
+    "weaknesses": ["electric", "ice", "rock"]
+  },
+  {
+    "id": 22,
+    "name": "fearow",
+    "types": ["normal", "flying"],
+    "resistant": ["grass", "fighting", "bug"],
+    "weaknesses": ["electric", "ice", "rock"]
+  },
+  {
+    "id": 23,
+    "name": "ekans",
+    "types": ["poison"],
+    "resistant": ["grass", "fighting", "poison", "bug", "fairy"],
+    "weaknesses": ["ground", "psychic"]
+  },
+  {
+    "id": 24,
+    "name": "arbok",
+    "types": ["poison"],
+    "resistant": ["grass", "fighting", "poison", "bug", "fairy"],
+    "weaknesses": ["ground", "psychic"]
+  },
+  {
+    "id": 25,
+    "name": "pikachu",
+    "types": ["electric"],
+    "resistant": ["electric", "flying", "steel"],
+    "weaknesses": ["ground"]
+  },
+  {
+    "id": 26,
+    "name": "raichu",
+    "types": ["electric"],
+    "resistant": ["electric", "flying", "steel"],
+    "weaknesses": ["ground"]
+  },
+  {
+    "id": 27,
+    "name": "sandshrew",
+    "types": ["ground"],
+    "resistant": ["poison", "rock"],
+    "weaknesses": ["water", "grass", "ice"]
+  },
+  {
+    "id": 28,
+    "name": "sandslash",
+    "types": ["ground"],
+    "resistant": ["poison", "rock"],
+    "weaknesses": ["water", "grass", "ice"]
+  },
+  {
+    "id": 29,
+    "name": "nidoran-f",
+    "types": ["poison"],
+    "resistant": ["grass", "fighting", "poison", "bug", "fairy"],
+    "weaknesses": ["ground", "psychic"]
+  },
+  {
+    "id": 30,
+    "name": "nidorina",
+    "types": ["poison"],
+    "resistant": ["grass", "fighting", "poison", "bug", "fairy"],
+    "weaknesses": ["ground", "psychic"]
+  },
+  {
+    "id": 31,
+    "name": "nidoqueen",
+    "types": ["poison", "ground"],
+    "resistant": ["grass", "fighting", "poison", "bug", "fairy", "rock"],
+    "weaknesses": ["ground", "psychic", "water", "grass", "ice"]
+  },
+  {
+    "id": 32,
+    "name": "nidoran-m",
+    "types": ["poison"],
+    "resistant": ["grass", "fighting", "poison", "bug", "fairy"],
+    "weaknesses": ["ground", "psychic"]
+  },
+  {
+    "id": 33,
+    "name": "nidorino",
+    "types": ["poison"],
+    "resistant": ["grass", "fighting", "poison", "bug", "fairy"],
+    "weaknesses": ["ground", "psychic"]
+  },
+  {
+    "id": 34,
+    "name": "nidoking",
+    "types": ["poison", "ground"],
+    "resistant": ["grass", "fighting", "poison", "bug", "fairy", "rock"],
+    "weaknesses": ["ground", "psychic", "water", "grass", "ice"]
+  },
+  {
+    "id": 35,
+    "name": "clefairy",
+    "types": ["fairy"],
+    "resistant": ["fighting", "bug", "dark"],
+    "weaknesses": ["poison", "steel"]
+  },
+  {
+    "id": 36,
+    "name": "clefable",
+    "types": ["fairy"],
+    "resistant": ["fighting", "bug", "dark"],
+    "weaknesses": ["poison", "steel"]
+  },
+  {
+    "id": 37,
+    "name": "vulpix",
+    "types": ["fire"],
+    "resistant": ["fire", "grass", "ice", "bug", "steel", "fairy"],
+    "weaknesses": ["water", "ground", "rock"]
+  },
+  {
+    "id": 38,
+    "name": "ninetales",
+    "types": ["fire"],
+    "resistant": ["fire", "grass", "ice", "bug", "steel", "fairy"],
+    "weaknesses": ["water", "ground", "rock"]
+  },
+  {
+    "id": 39,
+    "name": "jigglypuff",
+    "types": ["normal", "fairy"],
+    "resistant": ["fighting", "bug", "dark"],
+    "weaknesses": ["poison", "steel"]
+  },
+  {
+    "id": 40,
+    "name": "wigglytuff",
+    "types": ["normal", "fairy"],
+    "resistant": ["fighting", "bug", "dark"],
+    "weaknesses": ["poison", "steel"]
+  },
+  {
+    "id": 41,
+    "name": "zubat",
+    "types": ["poison", "flying"],
+    "resistant": ["grass", "fighting", "poison", "bug", "fairy"],
+    "weaknesses": ["ground", "psychic", "electric", "ice", "rock"]
+  },
+  {
+    "id": 42,
+    "name": "golbat",
+    "types": ["poison", "flying"],
+    "resistant": ["grass", "fighting", "poison", "bug", "fairy"],
+    "weaknesses": ["ground", "psychic", "electric", "ice", "rock"]
+  },
+  {
+    "id": 43,
+    "name": "oddish",
+    "types": ["grass", "poison"],
+    "resistant": ["water", "electric", "grass", "ground", "fighting", "poison", "bug", "fairy"],
+    "weaknesses": ["fire", "ice", "poison", "flying", "bug", "ground", "psychic"]
+  },
+  {
+    "id": 44,
+    "name": "gloom",
+    "types": ["grass", "poison"],
+    "resistant": ["water", "electric", "grass", "ground", "fighting", "poison", "bug", "fairy"],
+    "weaknesses": ["fire", "ice", "poison", "flying", "bug", "ground", "psychic"]
+  },
+  {
+    "id": 45,
+    "name": "vileplume",
+    "types": ["grass", "poison"],
+    "resistant": ["water", "electric", "grass", "ground", "fighting", "poison", "bug", "fairy"],
+    "weaknesses": ["fire", "ice", "poison", "flying", "bug", "ground", "psychic"]
+  },
+  {
+    "id": 46,
+    "name": "paras",
+    "types": ["bug", "grass"],
+    "resistant": ["grass", "fighting", "ground", "water", "electric"],
+    "weaknesses": ["fire", "flying", "rock", "ice", "poison", "bug"]
+  },
+  {
+    "id": 47,
+    "name": "parasect",
+    "types": ["bug", "grass"],
+    "resistant": ["grass", "fighting", "ground", "water", "electric"],
+    "weaknesses": ["fire", "flying", "rock", "ice", "poison", "bug"]
+  },
+  {
+    "id": 48,
+    "name": "venonat",
+    "types": ["bug", "poison"],
+    "resistant": ["grass", "fighting", "ground", "poison", "bug", "fairy"],
+    "weaknesses": ["fire", "flying", "rock", "ground", "psychic"]
+  },
+  {
+    "id": 49,
+    "name": "venomoth",
+    "types": ["bug", "poison"],
+    "resistant": ["grass", "fighting", "ground", "poison", "bug", "fairy"],
+    "weaknesses": ["fire", "flying", "rock", "ground", "psychic"]
+  },
+  {
+    "id": 50,
+    "name": "diglett",
+    "types": ["ground"],
+    "resistant": ["poison", "rock"],
+    "weaknesses": ["water", "grass", "ice"]
+  },
+  {
+    "id": 51,
+    "name": "dugtrio",
+    "types": ["ground"],
+    "resistant": ["poison", "rock"],
+    "weaknesses": ["water", "grass", "ice"]
+  },
+  { "id": 52, "name": "meowth", "types": ["normal"], "resistant": [], "weaknesses": [] },
+  { "id": 53, "name": "persian", "types": ["normal"], "resistant": [], "weaknesses": [] },
+  {
+    "id": 54,
+    "name": "psyduck",
+    "types": ["water"],
+    "resistant": ["fire", "water", "ice", "steel"],
+    "weaknesses": ["electric", "grass"]
+  },
+  {
+    "id": 55,
+    "name": "golduck",
+    "types": ["water"],
+    "resistant": ["fire", "water", "ice", "steel"],
+    "weaknesses": ["electric", "grass"]
+  },
+  {
+    "id": 56,
+    "name": "mankey",
+    "types": ["fighting"],
+    "resistant": ["bug", "rock", "dark"],
+    "weaknesses": ["flying", "psychic", "fairy"]
+  },
+  {
+    "id": 57,
+    "name": "primeape",
+    "types": ["fighting"],
+    "resistant": ["bug", "rock", "dark"],
+    "weaknesses": ["flying", "psychic", "fairy"]
+  },
+  {
+    "id": 58,
+    "name": "growlithe",
+    "types": ["fire"],
+    "resistant": ["fire", "grass", "ice", "bug", "steel", "fairy"],
+    "weaknesses": ["water", "ground", "rock"]
+  },
+  {
+    "id": 59,
+    "name": "arcanine",
+    "types": ["fire"],
+    "resistant": ["fire", "grass", "ice", "bug", "steel", "fairy"],
+    "weaknesses": ["water", "ground", "rock"]
+  },
+  {
+    "id": 60,
+    "name": "poliwag",
+    "types": ["water"],
+    "resistant": ["fire", "water", "ice", "steel"],
+    "weaknesses": ["electric", "grass"]
+  },
+  {
+    "id": 61,
+    "name": "poliwhirl",
+    "types": ["water"],
+    "resistant": ["fire", "water", "ice", "steel"],
+    "weaknesses": ["electric", "grass"]
+  },
+  {
+    "id": 62,
+    "name": "poliwrath",
+    "types": ["water", "fighting"],
+    "resistant": ["fire", "water", "ice", "steel", "bug", "rock", "dark"],
+    "weaknesses": ["electric", "grass", "flying", "psychic", "fairy"]
+  },
+  {
+    "id": 63,
+    "name": "abra",
+    "types": ["psychic"],
+    "resistant": ["fighting", "psychic"],
+    "weaknesses": ["bug", "ghost", "dark"]
+  },
+  {
+    "id": 64,
+    "name": "kadabra",
+    "types": ["psychic"],
+    "resistant": ["fighting", "psychic"],
+    "weaknesses": ["bug", "ghost", "dark"]
+  },
+  {
+    "id": 65,
+    "name": "alakazam",
+    "types": ["psychic"],
+    "resistant": ["fighting", "psychic"],
+    "weaknesses": ["bug", "ghost", "dark"]
+  },
+  {
+    "id": 66,
+    "name": "machop",
+    "types": ["fighting"],
+    "resistant": ["bug", "rock", "dark"],
+    "weaknesses": ["flying", "psychic", "fairy"]
+  },
+  {
+    "id": 67,
+    "name": "machoke",
+    "types": ["fighting"],
+    "resistant": ["bug", "rock", "dark"],
+    "weaknesses": ["flying", "psychic", "fairy"]
+  },
+  {
+    "id": 68,
+    "name": "machamp",
+    "types": ["fighting"],
+    "resistant": ["bug", "rock", "dark"],
+    "weaknesses": ["flying", "psychic", "fairy"]
+  },
+  {
+    "id": 69,
+    "name": "bellsprout",
+    "types": ["grass", "poison"],
+    "resistant": ["water", "electric", "grass", "ground", "fighting", "poison", "bug", "fairy"],
+    "weaknesses": ["fire", "ice", "poison", "flying", "bug", "ground", "psychic"]
+  },
+  {
+    "id": 70,
+    "name": "weepinbell",
+    "types": ["grass", "poison"],
+    "resistant": ["water", "electric", "grass", "ground", "fighting", "poison", "bug", "fairy"],
+    "weaknesses": ["fire", "ice", "poison", "flying", "bug", "ground", "psychic"]
+  },
+  {
+    "id": 71,
+    "name": "victreebel",
+    "types": ["grass", "poison"],
+    "resistant": ["water", "electric", "grass", "ground", "fighting", "poison", "bug", "fairy"],
+    "weaknesses": ["fire", "ice", "poison", "flying", "bug", "ground", "psychic"]
+  },
+  {
+    "id": 72,
+    "name": "tentacool",
+    "types": ["water", "poison"],
+    "resistant": ["fire", "water", "ice", "steel", "grass", "fighting", "poison", "bug", "fairy"],
+    "weaknesses": ["electric", "grass", "ground", "psychic"]
+  },
+  {
+    "id": 73,
+    "name": "tentacruel",
+    "types": ["water", "poison"],
+    "resistant": ["fire", "water", "ice", "steel", "grass", "fighting", "poison", "bug", "fairy"],
+    "weaknesses": ["electric", "grass", "ground", "psychic"]
+  },
+  {
+    "id": 74,
+    "name": "geodude",
+    "types": ["rock", "ground"],
+    "resistant": ["normal", "fire", "poison", "flying", "rock"],
+    "weaknesses": ["water", "grass", "fighting", "ground", "steel", "ice"]
+  },
+  {
+    "id": 75,
+    "name": "graveler",
+    "types": ["rock", "ground"],
+    "resistant": ["normal", "fire", "poison", "flying", "rock"],
+    "weaknesses": ["water", "grass", "fighting", "ground", "steel", "ice"]
+  },
+  {
+    "id": 76,
+    "name": "golem",
+    "types": ["rock", "ground"],
+    "resistant": ["normal", "fire", "poison", "flying", "rock"],
+    "weaknesses": ["water", "grass", "fighting", "ground", "steel", "ice"]
+  },
+  {
+    "id": 77,
+    "name": "ponyta",
+    "types": ["fire"],
+    "resistant": ["fire", "grass", "ice", "bug", "steel", "fairy"],
+    "weaknesses": ["water", "ground", "rock"]
+  },
+  {
+    "id": 78,
+    "name": "rapidash",
+    "types": ["fire"],
+    "resistant": ["fire", "grass", "ice", "bug", "steel", "fairy"],
+    "weaknesses": ["water", "ground", "rock"]
+  },
+  {
+    "id": 79,
+    "name": "slowpoke",
+    "types": ["water", "psychic"],
+    "resistant": ["fire", "water", "ice", "steel", "fighting", "psychic"],
+    "weaknesses": ["electric", "grass", "bug", "ghost", "dark"]
+  },
+  {
+    "id": 80,
+    "name": "slowbro",
+    "types": ["water", "psychic"],
+    "resistant": ["fire", "water", "ice", "steel", "fighting", "psychic"],
+    "weaknesses": ["electric", "grass", "bug", "ghost", "dark"]
+  },
+  {
+    "id": 81,
+    "name": "magnemite",
+    "types": ["electric", "steel"],
+    "resistant": ["electric", "flying", "steel", "normal", "grass", "ice", "psychic", "bug", "rock", "dragon", "fairy"],
+    "weaknesses": ["ground", "fire", "fighting"]
+  },
+  {
+    "id": 82,
+    "name": "magneton",
+    "types": ["electric", "steel"],
+    "resistant": ["electric", "flying", "steel", "normal", "grass", "ice", "psychic", "bug", "rock", "dragon", "fairy"],
+    "weaknesses": ["ground", "fire", "fighting"]
+  },
+  {
+    "id": 83,
+    "name": "farfetchd",
+    "types": ["normal", "flying"],
+    "resistant": ["grass", "fighting", "bug"],
+    "weaknesses": ["electric", "ice", "rock"]
+  },
+  {
+    "id": 84,
+    "name": "doduo",
+    "types": ["normal", "flying"],
+    "resistant": ["grass", "fighting", "bug"],
+    "weaknesses": ["electric", "ice", "rock"]
+  },
+  {
+    "id": 85,
+    "name": "dodrio",
+    "types": ["normal", "flying"],
+    "resistant": ["grass", "fighting", "bug"],
+    "weaknesses": ["electric", "ice", "rock"]
+  },
+  {
+    "id": 86,
+    "name": "seel",
+    "types": ["water"],
+    "resistant": ["fire", "water", "ice", "steel"],
+    "weaknesses": ["electric", "grass"]
+  },
+  {
+    "id": 87,
+    "name": "dewgong",
+    "types": ["water", "ice"],
+    "resistant": ["fire", "water", "ice", "steel"],
+    "weaknesses": ["electric", "grass", "fire", "fighting", "rock", "steel"]
+  },
+  {
+    "id": 88,
+    "name": "grimer",
+    "types": ["poison"],
+    "resistant": ["grass", "fighting", "poison", "bug", "fairy"],
+    "weaknesses": ["ground", "psychic"]
+  },
+  {
+    "id": 89,
+    "name": "muk",
+    "types": ["poison"],
+    "resistant": ["grass", "fighting", "poison", "bug", "fairy"],
+    "weaknesses": ["ground", "psychic"]
+  },
+  {
+    "id": 90,
+    "name": "shellder",
+    "types": ["water"],
+    "resistant": ["fire", "water", "ice", "steel"],
+    "weaknesses": ["electric", "grass"]
+  },
+  {
+    "id": 91,
+    "name": "cloyster",
+    "types": ["water", "ice"],
+    "resistant": ["fire", "water", "ice", "steel"],
+    "weaknesses": ["electric", "grass", "fire", "fighting", "rock", "steel"]
+  },
+  {
+    "id": 92,
+    "name": "gastly",
+    "types": ["ghost", "poison"],
+    "resistant": ["poison", "bug", "grass", "fighting", "fairy"],
+    "weaknesses": ["ghost", "dark", "ground", "psychic"]
+  },
+  {
+    "id": 93,
+    "name": "haunter",
+    "types": ["ghost", "poison"],
+    "resistant": ["poison", "bug", "grass", "fighting", "fairy"],
+    "weaknesses": ["ghost", "dark", "ground", "psychic"]
+  },
+  {
+    "id": 94,
+    "name": "gengar",
+    "types": ["ghost", "poison"],
+    "resistant": ["poison", "bug", "grass", "fighting", "fairy"],
+    "weaknesses": ["ghost", "dark", "ground", "psychic"]
+  },
+  {
+    "id": 95,
+    "name": "onix",
+    "types": ["rock", "ground"],
+    "resistant": ["normal", "fire", "poison", "flying", "rock"],
+    "weaknesses": ["water", "grass", "fighting", "ground", "steel", "ice"]
+  },
+  {
+    "id": 96,
+    "name": "drowzee",
+    "types": ["psychic"],
+    "resistant": ["fighting", "psychic"],
+    "weaknesses": ["bug", "ghost", "dark"]
+  },
+  {
+    "id": 97,
+    "name": "hypno",
+    "types": ["psychic"],
+    "resistant": ["fighting", "psychic"],
+    "weaknesses": ["bug", "ghost", "dark"]
+  },
+  {
+    "id": 98,
+    "name": "krabby",
+    "types": ["water"],
+    "resistant": ["fire", "water", "ice", "steel"],
+    "weaknesses": ["electric", "grass"]
+  },
+  {
+    "id": 99,
+    "name": "kingler",
+    "types": ["water"],
+    "resistant": ["fire", "water", "ice", "steel"],
+    "weaknesses": ["electric", "grass"]
+  },
+  {
+    "id": 100,
+    "name": "voltorb",
+    "types": ["electric"],
+    "resistant": ["electric", "flying", "steel"],
+    "weaknesses": ["ground"]
+  }
+]

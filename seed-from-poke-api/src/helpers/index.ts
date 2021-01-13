@@ -11,7 +11,7 @@ export const handleApiMappingToExpectedType = (response: PokemonApiResponse): Po
 
   return {
     id,
-    name,
+    name: capitalize(name),
     types: thisPokemonsTypes,
     resistant: resistantTo,
     weaknesses,
@@ -31,4 +31,10 @@ export const constructTypesToArray = (
     })
   })
   return [...new Set(resistantTo)]
+}
+
+export const capitalize = (lowerCasedWord: string): string => {
+  const firstLetter = lowerCasedWord.substr(0, 1).toUpperCase()
+  const restOfWord = lowerCasedWord.substr(1).toLowerCase()
+  return firstLetter + restOfWord
 }
