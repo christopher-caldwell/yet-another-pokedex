@@ -2,9 +2,10 @@ import axios from 'axios'
 import { resolve } from 'path'
 import { writeFileSync } from 'fs'
 
+import { PokemonProgressBar } from './helpers/progressBar'
 import { PokemonApiResponse } from './types/'
 import { handleApiMappingToExpectedType } from './helpers'
-import { Pokemon } from '../../shared-types/pokemon'
+import { Pokemon } from '../../../shared-types/pokemon'
 
 const pathForFile = resolve(process.cwd())
 const pokeUrl = 'https://pokeapi.co/api/v2'
@@ -17,13 +18,18 @@ const fetchPokemon = async (pokemonId: number): Promise<Pokemon> => {
   return pokemon
 }
 
+const waitForMs = async (msToWait: number) => new Promise(resolve => setTimeout(resolve, msToWait))
+
+const totalNumberOfPokemon = 898
 const main = async () => {
   const pokemon: Pokemon[] = []
   try {
-    for (let iterator = 0; iterator < 100; iterator++) {
-      const pokemonId = iterator + 1
+    PokemonProgressBar.start(totalNumberOfPokemon, 0)
+    for (let pokemonId = 1; pokemonId < totalNumberOfPokemon; pokemonId++) {
       const currentPokemon = await fetchPokemon(pokemonId)
       pokemon.push(currentPokemon)
+      await waitForMs(200)
+      PokemonProgressBar.increment()
     }
     writeFileSync(pathForFile + '/seed.json', JSON.stringify(pokemon))
     // console.log('pokemon', pokemon)

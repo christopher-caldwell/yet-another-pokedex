@@ -19,7 +19,8 @@
     "pretty": true,
     "noFallthroughCasesInSwitch": true,
     "allowUnreachableCode": false,
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    "esModuleInterop": true
   },
   "include": [
     "src",

@@ -1,6 +1,6 @@
-import { Pokemon, PokemonTypeName } from '../../../shared-types/pokemon'
+import { Pokemon, PokemonTypeName } from '../../../../shared-types/pokemon'
 import { PokemonApiResponse } from '../types/'
-import { types as pokemonTypes } from '../../../db/seed-data/types'
+import { types as pokemonTypes } from '../../../../db/seed-data/types'
 
 export const handleApiMappingToExpectedType = (response: PokemonApiResponse): Pokemon => {
   const { types, name, id } = response

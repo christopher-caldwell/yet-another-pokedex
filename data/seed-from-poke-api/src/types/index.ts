@@ -1,4 +1,4 @@
-import { PokemonTypeName } from '../../../shared-types/pokemon'
+import { PokemonTypeName } from '../../../../shared-types/pokemon'
 
 export interface PokemonApiType {
   slot: number
