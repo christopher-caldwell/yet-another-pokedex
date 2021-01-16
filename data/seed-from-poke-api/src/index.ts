@@ -21,18 +21,19 @@ const fetchPokemon = async (pokemonId: number): Promise<Pokemon> => {
 const waitForMs = async (msToWait: number) => new Promise(resolve => setTimeout(resolve, msToWait))
 
 const totalNumberOfPokemon = 898
+const startPosition = 1
+const numOfMsToWaitBetweenApiCalls = 200
 const main = async () => {
   const pokemon: Pokemon[] = []
   try {
-    PokemonProgressBar.start(totalNumberOfPokemon, 0)
-    for (let pokemonId = 1; pokemonId < totalNumberOfPokemon; pokemonId++) {
+    PokemonProgressBar.start(totalNumberOfPokemon, startPosition)
+    for (let pokemonId = startPosition; pokemonId < totalNumberOfPokemon; pokemonId++) {
       const currentPokemon = await fetchPokemon(pokemonId)
       pokemon.push(currentPokemon)
-      await waitForMs(200)
+      await waitForMs(numOfMsToWaitBetweenApiCalls)
       PokemonProgressBar.increment()
     }
     writeFileSync(pathForFile + '/seed.json', JSON.stringify(pokemon))
-    // console.log('pokemon', pokemon)
   } catch (error) {
     console.error('error', error)
   }
