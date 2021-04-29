@@ -1,17 +1,21 @@
 import React from 'react'
-import { SafeAreaView, StatusBar } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
+import { Appearance } from 'react-native'
+import { ThemeProvider } from 'styled-components/native'
 
 import Router from '@/router'
+import { themeMap } from '@/constants/themes'
 
 const App = () => {
+  const colorScheme = Appearance.getColorScheme()
+  const theme = themeMap?.[colorScheme || 'dark']
+
   return (
-    <NavigationContainer>
-      <StatusBar barStyle='dark-content' />
-      <SafeAreaView>
+    <ThemeProvider theme={theme}>
+      <NavigationContainer>
         <Router />
-      </SafeAreaView>
-    </NavigationContainer>
+      </NavigationContainer>
+    </ThemeProvider>
   )
 }
 

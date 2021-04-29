@@ -8,6 +8,7 @@ module.exports = {
         extensions: ['*.ts', '*.tsx', '*.json'],
         alias: {
           '@': './src/',
+          'shared-types': '../shared-types',
         },
       },
     ],

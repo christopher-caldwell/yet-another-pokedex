@@ -18,7 +18,8 @@
     "moduleResolution": "node",
     "baseUrl": "./src",
     "paths": {
-      "@/*": ["*"]
+      "@/*": ["*"],
+      "shared-types": ["../../shared-types/*"]
     },
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
