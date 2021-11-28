@@ -7,7 +7,6 @@ import { searchForPokemon } from '@/helpers'
 import { Pokemon } from '@/interfaces'
 import ListPokemon from '@/components/pokemon/ListPokemon'
 import { themeView } from '@/constants/styles'
-import { windowHeight } from '@/constants'
 
 const startPosition = new Animated.ValueXY({ x: 0, y: 0 })
 const PokemonSearch: FC = () => {
