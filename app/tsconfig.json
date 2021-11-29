@@ -17,6 +17,7 @@
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
     "baseUrl": "./src",
+    "skipLibCheck": true,
     "paths": {
       "@/*": ["*"],
       "shared-types": ["../../shared-types/*"]

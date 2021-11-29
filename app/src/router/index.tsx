@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
-import Pokemon from '@/views/Pokemon'
-import Profile from '@/views/Profile'
+import Pokemon from '@/pages/pokemon'
+import Profile from '@/pages/profile'
 
 const Tab = createBottomTabNavigator()
 const Router: FC = () => {

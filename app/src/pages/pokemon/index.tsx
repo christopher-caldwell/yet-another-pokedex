@@ -3,9 +3,9 @@ import styled, { ThemeContext } from 'styled-components/native'
 import { FlatList, ListRenderItem, SafeAreaView, Animated } from 'react-native'
 
 import { useInput } from '@/hooks/useInput'
-import { searchForPokemon } from '@/helpers'
+import { searchForPokemon } from '@/features/pokemon/api'
 import { Pokemon } from '@/interfaces'
-import ListPokemon from '@/components/pokemon/ListPokemon'
+import ListPokemon from '@/features/pokemon/components/ListPokemon'
 import { themeView } from '@/constants/styles'
 
 const startPosition = new Animated.ValueXY({ x: 0, y: 0 })
