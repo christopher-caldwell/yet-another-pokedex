@@ -11,11 +11,11 @@ const App = () => {
   const theme = themeMap?.[colorScheme || 'dark']
 
   return (
-    <ThemeProvider theme={theme}>
-      <NavigationContainer>
+    <NavigationContainer>
+      <ThemeProvider theme={theme}>
         <Router />
-      </NavigationContainer>
-    </ThemeProvider>
+      </ThemeProvider>
+    </NavigationContainer>
   )
 }
 
