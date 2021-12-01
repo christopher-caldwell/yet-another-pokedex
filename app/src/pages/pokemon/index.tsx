@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useMemo, useContext, useEffect } from 'react'
+import React, { FC, useCallback, useMemo, useContext } from 'react'
 import styled, { ThemeContext } from 'styled-components/native'
 import { FlatList, ListRenderItem, SafeAreaView, Animated } from 'react-native'
 
@@ -8,31 +8,16 @@ import { Pokemon } from '@/interfaces'
 import ListPokemon from '@/features/pokemon/components/ListPokemon'
 import { themeView } from '@/constants/styles'
 
-const startPosition = new Animated.ValueXY({ x: 0, y: 0 })
 const PokemonSearch: FC = () => {
   const { secondaryTextColor } = useContext(ThemeContext)
   const [searchTerm, bindSearchTerm] = useInput('')
   const results = useMemo(() => searchForPokemon(searchTerm), [searchTerm])
-  useEffect(() => {
-    if (searchTerm !== '') {
-      Animated.spring(startPosition, {
-        toValue: { x: 0, y: -300 },
-        useNativeDriver: false,
-      }).start()
-    } else {
-      Animated.spring(startPosition, {
-        toValue: { x: 0, y: 0 },
-        useNativeDriver: false,
-      }).start()
-    }
-  }, [searchTerm])
 
   const renderItem = useCallback<ListRenderItem<Pokemon>>(({ item }) => <ListPokemon {...item} />, [])
 
-  console.log('results', results)
   return (
     <Container>
-      <SearchFieldContainer style={startPosition.getLayout()}>
+      <SearchFieldContainer>
         <SearchField
           placeholderTextColor={secondaryTextColor}
           placeholder={'Search for a Pokémon'}
@@ -54,7 +39,6 @@ const SearchFieldContainer = styled(Animated.View)`
 `
 
 const SearchField = styled.TextInput`
-  height: 100%;
   padding: 2%;
   color: ${({ theme }) => theme.primaryTextColor};
 `
