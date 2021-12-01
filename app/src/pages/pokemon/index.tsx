@@ -1,29 +1,23 @@
-import React, { FC, useCallback, useMemo, useContext } from 'react'
-import styled, { ThemeContext } from 'styled-components/native'
-import { FlatList, ListRenderItem, SafeAreaView, Animated } from 'react-native'
+import React, { FC, useCallback } from 'react'
+import styled from 'styled-components/native'
+import { FlatList, ListRenderItem, SafeAreaView } from 'react-native'
 
 import { useInput } from '@/hooks/useInput'
 import { searchForPokemon } from '@/features/pokemon/api'
 import { Pokemon } from '@/interfaces'
 import ListPokemon from '@/features/pokemon/components/ListPokemon'
 import { themeView } from '@/constants/styles'
+import { SearchField } from '@/components'
 
 const PokemonSearch: FC = () => {
-  const { secondaryTextColor } = useContext(ThemeContext)
   const [searchTerm, bindSearchTerm] = useInput('')
-  const results = useMemo(() => searchForPokemon(searchTerm), [searchTerm])
-
+  const results = searchForPokemon(searchTerm)
+  console.log('results', results.length)
   const renderItem = useCallback<ListRenderItem<Pokemon>>(({ item }) => <ListPokemon {...item} />, [])
 
   return (
     <Container>
-      <SearchFieldContainer>
-        <SearchField
-          placeholderTextColor={secondaryTextColor}
-          placeholder={'Search for a Pokémon'}
-          {...bindSearchTerm}
-        />
-      </SearchFieldContainer>
+      <SearchField placeholder='Search for a Pokémon' searchBind={bindSearchTerm} />
       <FlatList<Pokemon> data={results} renderItem={renderItem} keyExtractor={item => item.id.toString()} />
     </Container>
   )
@@ -32,15 +26,6 @@ const PokemonSearch: FC = () => {
 const Container = styled(SafeAreaView)`
   ${themeView}
   width: 100%;
-`
-
-const SearchFieldContainer = styled(Animated.View)`
-  height: 100%;
-`
-
-const SearchField = styled.TextInput`
-  padding: 2%;
-  color: ${({ theme }) => theme.primaryTextColor};
 `
 
 export default PokemonSearch

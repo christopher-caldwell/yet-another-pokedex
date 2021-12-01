@@ -3,7 +3,7 @@ import { useState, Dispatch, SetStateAction } from 'react'
 /** The input */
 type Value = string
 /** To be spread on the input in order to bind the input to the state value */
-type BindValue = {
+export type BindValue = {
   value: string
   onChangeText: (text: string) => void
 }

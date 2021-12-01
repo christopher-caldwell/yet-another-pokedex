@@ -1,1 +1,2 @@
-export * from './FlexContainer'
+export * from './containers'
+export * from './search-bar'
