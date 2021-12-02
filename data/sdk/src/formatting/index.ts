@@ -1,10 +1,11 @@
-import { Pokemon, PokemonTypeName } from '../../../../shared-types/pokemon'
-import { PokemonApiResponse } from '../types/'
-import { types as pokemonTypes } from '../../../../db/seed-data/types'
+import { Pokemon as PokedexPokemon } from 'pokedex-promise-v2'
+import capitalize from 'lodash.capitalize'
 
-export const handleApiMappingToExpectedType = (response: PokemonApiResponse): Pokemon => {
+import { types as pokemonTypes, Pokemon, PokemonTypeName } from '../types'
+
+export const handleApiMappingToExpectedType = (response: PokedexPokemon): Pokemon => {
   const { types, name, id } = response
-  const thisPokemonsTypes = types.map(({ type: { name } }) => name)
+  const thisPokemonsTypes = types.map(({ type: { name } }) => name) as PokemonTypeName[]
 
   const resistantTo = constructTypesToArray(thisPokemonsTypes, 'defendsWellAgainst')
   const weaknesses = constructTypesToArray(thisPokemonsTypes, 'vulnerableTo')
@@ -34,8 +35,3 @@ export const constructTypesToArray = (
   return [...new Set(resistantTo)]
 }
 
-export const capitalize = (lowerCasedWord: string): string => {
-  const firstLetter = lowerCasedWord.substr(0, 1).toUpperCase()
-  const restOfWord = lowerCasedWord.substr(1).toLowerCase()
-  return firstLetter + restOfWord
-}

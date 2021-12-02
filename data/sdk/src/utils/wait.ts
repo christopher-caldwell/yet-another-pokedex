@@ -1,0 +1,1 @@
+export const waitForMs = (msToWait: number) => new Promise((resolve) => setTimeout(resolve, msToWait))
