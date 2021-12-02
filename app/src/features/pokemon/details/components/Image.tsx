@@ -15,7 +15,6 @@ export const PokemonImage: FC<Props> = ({ url }) => {
 const Container = styled.View`
   height: 200px;
   justify-content: center;
-  background-color: red;
   flex-direction: row;
   align-items: center;
 `

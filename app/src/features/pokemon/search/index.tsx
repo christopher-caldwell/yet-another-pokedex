@@ -1,12 +1,13 @@
 import React, { FC, useCallback } from 'react'
 import styled from 'styled-components/native'
 import { FlatList, ListRenderItem, SafeAreaView } from 'react-native'
+import { SearchBar } from 'react-native-elements'
 
 import { useInput } from '@/hooks/useInput'
 import { searchForPokemon } from '@/features/pokemon/api'
 import { Pokemon } from '@/interfaces'
 import { themeView } from '@/constants/styles'
-import { SearchField } from '@/components'
+// import { SearchField } from '@/components'
 import { ListPokemon } from './components/ListPokemon'
 
 export const PokemonSearch: FC = () => {
@@ -17,7 +18,7 @@ export const PokemonSearch: FC = () => {
   return (
     <Container>
       <SearchContainer>
-        <SearchField placeholder='Search for a Pokémon' searchBind={bindSearchTerm} />
+        <SearchBar platform='ios' placeholder='Search for a Pokemon' {...bindSearchTerm} />
       </SearchContainer>
       <FlatList<Pokemon> data={results} renderItem={renderItem} keyExtractor={item => item.id.toString()} />
     </Container>
