@@ -43,3 +43,5 @@ export const handleFilterAndSort = <TData>({
   }
   return results
 }
+
+export * from './search'

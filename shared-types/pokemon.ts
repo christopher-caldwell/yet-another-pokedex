@@ -28,6 +28,7 @@ export interface Pokemon {
   resistant: PokemonTypeName[]
   /** Will get a `Super effective` when this type of move is used against it */
   weaknesses: PokemonTypeName[]
+  imageUrl: string
 }
 
 export interface PokemonType {

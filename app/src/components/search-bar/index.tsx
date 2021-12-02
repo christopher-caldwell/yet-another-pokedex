@@ -9,11 +9,9 @@ export const SearchField: FC<Props> = ({ placeholder, searchBind }) => {
 
   const handleFocus = () => {
     setIsFocused(true)
-    console.log('focus')
   }
 
   const handleBlur = () => {
-    console.log('blur')
     Keyboard.dismiss()
     setIsFocused(false)
   }

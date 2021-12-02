@@ -1,31 +1,17 @@
-import React, { FC, useCallback } from 'react'
-import styled from 'styled-components/native'
-import { FlatList, ListRenderItem, SafeAreaView } from 'react-native'
+import * as React from 'react'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-import { useInput } from '@/hooks/useInput'
-import { searchForPokemon } from '@/features/pokemon/api'
-import { Pokemon } from '@/interfaces'
-import ListPokemon from '@/features/pokemon/components/ListPokemon'
-import { themeView } from '@/constants/styles'
-import { SearchField } from '@/components'
+import { PokemonSearch, PokemonDetails } from '@/features/pokemon'
 
-const PokemonSearch: FC = () => {
-  const [searchTerm, bindSearchTerm] = useInput('')
-  const results = searchForPokemon(searchTerm)
-  console.log('results', results.length)
-  const renderItem = useCallback<ListRenderItem<Pokemon>>(({ item }) => <ListPokemon {...item} />, [])
-
+const Stack = createNativeStackNavigator()
+const PokemonStackNavigator = () => {
   return (
-    <Container>
-      <SearchField placeholder='Search for a Pokémon' searchBind={bindSearchTerm} />
-      <FlatList<Pokemon> data={results} renderItem={renderItem} keyExtractor={item => item.id.toString()} />
-    </Container>
+    <Stack.Navigator>
+      {/* TODO: Routing Enums */}
+      <Stack.Screen name='Pokemon' component={PokemonSearch} />
+      <Stack.Screen name='PokemonDetails' component={PokemonDetails} />
+    </Stack.Navigator>
   )
 }
 
-const Container = styled(SafeAreaView)`
-  ${themeView}
-  width: 100%;
-`
-
-export default PokemonSearch
+export default PokemonStackNavigator

@@ -7,8 +7,8 @@ import TypeMap from '@/pages/type-map'
 const Tab = createBottomTabNavigator()
 const Router: FC = () => {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name='Pokemon' component={Pokemon} />
+    <Tab.Navigator screenOptions={{ headerShown: false }}>
+      <Tab.Screen name='Pokedex' component={Pokemon} />
       <Tab.Screen name='Type Planner' component={TypeMap} />
     </Tab.Navigator>
   )
