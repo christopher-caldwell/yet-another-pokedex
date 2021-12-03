@@ -24,11 +24,12 @@ export interface Pokemon {
   name: string
   /** Types that this pokemon has */
   types: PokemonTypeName[]
-  /** Will get a `Not very effective` when this type of move is used against it */
-  resistant: PokemonTypeName[]
-  /** Will get a `Super effective` when this type of move is used against it */
-  weaknesses: PokemonTypeName[]
   imageUrl: string
+  mostEffectiveTypes: PokemonTypeName[]
+  superEffectiveTypes: PokemonTypeName[]
+  notVeryEffectiveTypes: PokemonTypeName[]
+  noEffectTypes: PokemonTypeName[]
+  description: string
 }
 
 export interface PokemonType {
