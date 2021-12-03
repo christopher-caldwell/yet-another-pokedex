@@ -45,7 +45,7 @@ const scrapePokemon = async (id: number): Promise<Pokemon> => {
 const getPokemon = async () => {
   const pokemon: Pokemon[] = []
   PokemonProgressBar.start(numPokemon, 0)
-  for (let iterator = 1; iterator <= numPokemon; iterator++) {
+  for (let iterator = 896; iterator <= numPokemon; iterator++) {
     try {
       const targetPokemon = await scrapePokemon(iterator)
       // const evolutionId = getEvolutionIdFromUrl(species.evolution_chain.url)
@@ -62,7 +62,7 @@ const getPokemon = async () => {
 
 const writePokemon = async (): Promise<void> => {
   const pokemon = await getPokemon()
-  writeFileSync('./pokemon.json', JSON.stringify(pokemon))
+  writeFileSync('./missingPokemon.json', JSON.stringify(pokemon))
 }
 
 writePokemon()

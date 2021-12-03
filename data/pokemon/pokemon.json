@@ -10422,5 +10422,16 @@
     "noEffectTypes": [],
     "description": "Glastrier has tremendous physical strength, and the mask of ice covering its face is 100 times harder than diamond.",
     "imageUrl": "@/assets/official-artwork/896.png"
+  },
+  {
+    "id": 897,
+    "name": "Spectrier",
+    "types": ["ghost"],
+    "mostEffectiveTypes": [],
+    "superEffectiveTypes": ["ghost", "dark"],
+    "notVeryEffectiveTypes": ["poison", "bug"],
+    "noEffectTypes": ["normal", "fighting"],
+    "description": "As it dashes through the night, Spectrier absorbs the life-force of sleeping creatures. It craves silence and solitude.",
+    "imageUrl": "@/assets/official-artwork/897.png"
   }
 ]
