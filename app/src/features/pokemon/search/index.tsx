@@ -1,13 +1,12 @@
 import React, { FC, useCallback } from 'react'
 import styled from 'styled-components/native'
 import { FlatList, ListRenderItem, SafeAreaView } from 'react-native'
-import { SearchBar } from 'react-native-elements'
 
 import { useInput } from '@/hooks/useInput'
 import { searchForPokemon } from '@/features/pokemon/api'
 import { Pokemon } from '@/interfaces'
 import { themeView } from '@/constants/styles'
-// import { SearchField } from '@/components'
+import { SearchBar } from '@/components'
 import { ListPokemon } from './components/ListPokemon'
 
 export const PokemonSearch: FC = () => {
@@ -30,6 +29,4 @@ const Container = styled(SafeAreaView)`
   width: 100%;
 `
 
-const SearchContainer = styled.View`
-  padding: 0 2%;
-`
+const SearchContainer = styled.View``

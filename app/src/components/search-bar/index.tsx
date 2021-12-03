@@ -1,54 +1,14 @@
-import React, { FC, useState } from 'react'
-import { Keyboard } from 'react-native'
-import styled from 'styled-components/native'
+import React, { FC } from 'react'
+import { SearchBar as RNESearchBar, SearchBarProps } from 'react-native-elements'
 
 import { BindValue } from '@/hooks'
-
-export const SearchField: FC<Props> = ({ placeholder, searchBind }) => {
-  const [isFocused, setIsFocused] = useState(false)
-
-  const handleFocus = () => {
-    setIsFocused(true)
-  }
-
-  const handleBlur = () => {
-    Keyboard.dismiss()
-    setIsFocused(false)
-  }
-
-  return (
-    <Container>
-      <Input
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        isFocused={isFocused}
-        placeholder={placeholder}
-        {...searchBind}
-      />
-      <CancelButton title='Cancel' isFocused={isFocused} onPress={handleBlur} />
-    </Container>
-  )
+/**
+ * This "hacks" the react-native-elements Search Bar due to a bad typing job
+ * https://github.com/react-native-elements/react-native-elements/issues/3163
+ */
+export const SearchBar: FC<Props> = props => {
+  //@ts-ignore
+  return <RNESearchBar {...(props as SearchBarProps)} />
 }
 
-interface Props {
-  placeholder: string
-  searchBind: BindValue
-}
-
-const Container = styled.View`
-  display: flex;
-  flex-direction: row;
-  transition: all 0.2s;
-`
-
-const Input = styled.TextInput<{ isFocused: boolean }>`
-  width: ${({ isFocused }) => (isFocused ? '80%' : '100%')};
-  padding: 2%;
-  color: ${({ theme }) => theme.primaryTextColor};
-  border: 1px solid ${({ theme: { primaryTextColor } }) => primaryTextColor};
-  border-radius: 10px;
-`
-
-const CancelButton = styled.Button<{ isFocused: boolean }>`
-  width: ${({ isFocused }) => (isFocused ? '20%' : 0)};
-`
+type Props = Partial<Omit<SearchBarProps, 'onChangeText'> & BindValue>
