@@ -1,6 +1,8 @@
 import React, { FC } from 'react'
 import styled from 'styled-components/native'
 
+import { themeView } from '@/constants/styles'
+
 export const PokemonImage: FC<Props> = ({ url }) => {
   return (
     <Container>
@@ -13,6 +15,7 @@ export const PokemonImage: FC<Props> = ({ url }) => {
 }
 
 const Container = styled.View`
+  ${themeView}
   height: 200px;
   justify-content: center;
   flex-direction: row;

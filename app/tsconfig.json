@@ -18,6 +18,7 @@
     "moduleResolution": "node",
     "baseUrl": "./src",
     "skipLibCheck": true,
+    "resolveJsonModule": true,
     "paths": {
       "@/*": ["*"],
       "shared-types": ["../../shared-types/*"]

@@ -6,10 +6,10 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { getPokemonById } from '@/utils'
 import { DisplayTable } from '@/components'
 import { PokemonImage, Description, TypePill } from './components'
-import { types } from '@/constants'
-import { PokemonTypeName, Pokemon } from '@/interfaces'
+import { PokemonTypeName } from '@/interfaces'
 
 export const PokemonDetails: FC = () => {
+  //TODO: Bad set state in here somewhere, likely need to get navigation as a prop
   const route = useRoute()
   const navigation = useNavigation<NativeStackNavigationProp<{}>>()
   //@ts-ignore
@@ -19,7 +19,7 @@ export const PokemonDetails: FC = () => {
   return (
     <ScrollView>
       <PokemonImage url={pokemon.imageUrl} />
-      <Description description="Charizard flies around the sky in search of powerful opponents. It breathes fire of such great heat that it melts anything. However, it never turns it's firey breath on any opponent weaker than itself" />
+      <Description description={pokemon.description} />
       <DisplayTable
         title='Types'
         rows={[
@@ -33,17 +33,22 @@ export const PokemonDetails: FC = () => {
               </>
             ),
           },
+          // TODO: Fix to be no render if length 0
           {
             label: 'Most Effective',
-            value: <MostEffectiveTypes {...pokemon} />,
+            value: <TypesPills types={pokemon.mostEffectiveTypes} />,
           },
           {
             label: 'Fight With',
-            value: <FightWithTypes {...pokemon} />,
+            value: <TypesPills types={pokemon.superEffectiveTypes} />,
           },
           {
             label: 'Avoid Using',
-            value: <AvoidTypes {...pokemon} />,
+            value: <TypesPills types={pokemon.notVeryEffectiveTypes} />,
+          },
+          {
+            label: 'No Effect',
+            value: <TypesPills types={pokemon.noEffectTypes} />,
           },
         ]}
       />
@@ -51,57 +56,10 @@ export const PokemonDetails: FC = () => {
   )
 }
 
-const MostEffectiveTypes: FC<Pokemon> = ({ types: pokemonTypes }) => (
+const TypesPills: FC<{ types: PokemonTypeName[] }> = ({ types }) => (
   <>
-    {findDuplicateTypes(getFightWithTypes(pokemonTypes, false)).map(type => (
+    {types.map(type => (
       <TypePill key={type} type={type} />
     ))}
   </>
 )
-
-const FightWithTypes: FC<Pokemon> = ({ types: pokemonTypes }) => (
-  <>
-    {getFightWithTypes(pokemonTypes).map(type => (
-      <TypePill key={type} type={type} />
-    ))}
-  </>
-)
-
-const AvoidTypes: FC<Pokemon> = ({ types: pokemonTypes }) => (
-  <>
-    {getAvoidTypes(pokemonTypes).map(type => (
-      <TypePill key={type} type={type} />
-    ))}
-  </>
-)
-
-const findDuplicateTypes = (pokemonTypes: PokemonTypeName[]): PokemonTypeName[] => {
-  const duplicateTypes: PokemonTypeName[] = []
-  pokemonTypes.forEach((type, index) => {
-    const potentialDuplicateIndex = pokemonTypes.indexOf(type)
-    if (potentialDuplicateIndex !== index && potentialDuplicateIndex >= 0) {
-      duplicateTypes.push(type)
-    }
-  })
-  return duplicateTypes
-}
-
-const getFightWithTypes = (pokemonTypes: PokemonTypeName[], shouldBeUnique = true) => {
-  const fightWithTypes: PokemonTypeName[] = []
-  pokemonTypes.forEach(type => {
-    types[type].doubleDamageFrom.forEach(doubleDamageType => {
-      fightWithTypes.push(doubleDamageType)
-    })
-  })
-  return shouldBeUnique ? [...new Set(fightWithTypes)] : fightWithTypes
-}
-
-const getAvoidTypes = (pokemonTypes: PokemonTypeName[]) => {
-  const avoidTypes: PokemonTypeName[] = []
-  pokemonTypes.forEach(type => {
-    types[type].halfDamageFrom.forEach(doubleDamageType => {
-      avoidTypes.push(doubleDamageType)
-    })
-  })
-  return [...new Set(avoidTypes)]
-}

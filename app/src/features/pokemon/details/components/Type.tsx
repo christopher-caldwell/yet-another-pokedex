@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import styled from 'styled-components/native'
 import capitalize from 'lodash.capitalize'
 
+import { themeText, themeView } from '@/constants/styles'
 import { types } from '@/constants'
 import { PokemonTypeName } from '@/interfaces'
 
@@ -19,9 +20,10 @@ const getColorFromType = (type: PokemonTypeName) => {
 }
 
 const Label = styled.Text`
-  color: white;
+  ${themeText}
 `
 const Container = styled.View<{ pillColor: string; hasMargin: boolean }>`
+  ${themeView}
   background-color: ${({ pillColor }) => pillColor};
   padding: 7px 15px;
   border-radius: 10px;

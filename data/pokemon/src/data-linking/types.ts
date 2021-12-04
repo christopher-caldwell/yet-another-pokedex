@@ -1,5 +1,5 @@
 import { PokemonType } from 'pokedex-promise-v2'
-import { PokemonTypeName } from '../../../../shared-types/pokemon'
+import { PokemonTypeName } from '../../../types/src/interfaces'
 import types from '../../../types/types.json'
 
 export const findDuplicateTypes = (pokemonTypes: PokemonTypeName[]): PokemonTypeName[] => {

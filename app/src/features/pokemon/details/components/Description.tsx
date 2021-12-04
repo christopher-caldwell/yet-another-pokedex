@@ -1,6 +1,8 @@
 import React, { FC } from 'react'
 import styled from 'styled-components/native'
 
+import { themeText } from '@/constants/styles'
+
 export const Description: FC<Props> = ({ description }) => {
   return (
     <Container>
@@ -14,9 +16,9 @@ const Container = styled.View`
   justify-content: center;
   flex-direction: row;
   padding: 3%;
-  margin-bottom: 5%;
 `
 const Text = styled.Text`
+  ${themeText}
   line-height: 20px;
 `
 

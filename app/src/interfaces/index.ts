@@ -1,6 +1,7 @@
 import { ColorSchemeName } from 'react-native'
 
-export * from '../../../shared-types/pokemon'
+export * from '../../../data/pokemon/src/interfaces'
+export * from '../../../data/types/src/interfaces'
 
 export interface Theme {
   mode: ColorSchemeName

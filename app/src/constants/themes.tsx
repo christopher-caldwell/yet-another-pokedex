@@ -9,10 +9,10 @@ declare module 'styled-components' {
 export const darkTheme: DefaultTheme = {
   mode: 'dark',
   brandColor: '#4d6cf5',
-  primaryBackgroundColor: '#353c51',
-  primaryTextColor: '#cfd5e8',
+  primaryBackgroundColor: '#080808',
+  primaryTextColor: '#f2f2f2',
   secondaryTextColor: 'white',
-  secondaryBackgroundColor: 'white',
+  secondaryBackgroundColor: '#393e42',
   primaryButtonColor: '#152642',
   secondaryButtonColor: '#506680',
 }

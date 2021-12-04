@@ -1,17 +1,6 @@
-import { PokemonTypeName } from '@/interfaces'
+import { PokemonTypeMap } from '@/interfaces'
 
-export interface PokemonType {
-  name: PokemonTypeName
-  color: string
-  doubleDamageFrom: PokemonTypeName[]
-  doubleDamageTo: PokemonTypeName[]
-  noDamageFrom: PokemonTypeName[]
-  noDamageTo: PokemonTypeName[]
-  halfDamageTo: PokemonTypeName[]
-  halfDamageFrom: PokemonTypeName[]
-}
-
-export const types: Record<PokemonTypeName, PokemonType> = {
+export const types: PokemonTypeMap = {
   normal: {
     name: 'normal',
     color: 'rgb(137,143,150)',

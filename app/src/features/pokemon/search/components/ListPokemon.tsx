@@ -28,7 +28,9 @@ export const ListPokemon: FC<Props> = ({ name, id, imageUrl }) => {
 
 interface Props extends Pokemon {}
 
-const NumberContainer = styled.Text``
+const NumberContainer = styled.Text`
+  color: ${({ theme: { primaryTextColor } }) => primaryTextColor};
+`
 const Container = styled.View`
   border: 0.5px solid #e6e6e6;
   padding: 4%;
@@ -41,7 +43,9 @@ const InfoContainer = styled.View`
   flex-direction: row;
   align-items: center;
 `
-const Name = styled.Text``
+const Name = styled.Text`
+  color: ${({ theme: { primaryTextColor } }) => primaryTextColor};
+`
 const Image = styled.Image`
   height: 30px;
   width: 30px;

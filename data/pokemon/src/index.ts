@@ -1,17 +1,17 @@
 import PokedexPromise, { PokemonSpecies, Pokemon as PromisePokemon } from 'pokedex-promise-v2'
-import capitalize from 'lodash.capitalize'
 import { writeFileSync } from 'fs'
 
-import { Pokemon } from '../../../shared-types/pokemon'
 import { waitForMs, PokemonProgressBar } from './utils'
 import {
   getMostEffectiveTypes,
-  getFightWithTypes,
+  pruneFightWithTypes,
   extractStringTypesFromNestedTypes,
-  getAvoidTypes,
   getNoEffectTypes,
   getDescriptionFromFlavors,
+  pruneAvoidTypes,
+  formatName
 } from './data-linking'
+import { Pokemon } from './interfaces'
 
 const Pokedex = new PokedexPromise()
 const numPokemon = 897
@@ -31,11 +31,11 @@ const scrapePokemon = async (id: number): Promise<Pokemon> => {
   // const evolutionChain = (await Pokedex.getEvolutionChainById(evolutionId)) as unknown as EvolutionChain
   return {
     id,
-    name: capitalize(name),
+    name: formatName(name),
     types,
     mostEffectiveTypes: getMostEffectiveTypes(types),
-    superEffectiveTypes: getFightWithTypes(types),
-    notVeryEffectiveTypes: getAvoidTypes(types),
+    superEffectiveTypes: pruneFightWithTypes(types),
+    notVeryEffectiveTypes: pruneAvoidTypes(types),
     noEffectTypes: getNoEffectTypes(types),
     // 0 index is english
     description: getDescriptionFromFlavors(flavor_text_entries),
@@ -45,7 +45,7 @@ const scrapePokemon = async (id: number): Promise<Pokemon> => {
 const getPokemon = async () => {
   const pokemon: Pokemon[] = []
   PokemonProgressBar.start(numPokemon, 0)
-  for (let iterator = 896; iterator <= numPokemon; iterator++) {
+  for (let iterator = 1; iterator <= numPokemon; iterator++) {
     try {
       const targetPokemon = await scrapePokemon(iterator)
       // const evolutionId = getEvolutionIdFromUrl(species.evolution_chain.url)
@@ -62,7 +62,7 @@ const getPokemon = async () => {
 
 const writePokemon = async (): Promise<void> => {
   const pokemon = await getPokemon()
-  writeFileSync('./missingPokemon.json', JSON.stringify(pokemon))
+  writeFileSync('./pokemon.json', JSON.stringify(pokemon))
 }
 
 writePokemon()

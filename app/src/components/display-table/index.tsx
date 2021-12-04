@@ -1,3 +1,4 @@
+import { themeText, themeView } from '@/constants/styles'
 import React, { FC } from 'react'
 import styled from 'styled-components/native'
 
@@ -17,11 +18,13 @@ export const DisplayTable: FC<Props> = ({ title, rows, valueMaxWidth = 70 }) => 
   )
 }
 
-const Container = styled.View``
+const Container = styled.View`
+  ${themeView}
+`
 const Title = styled.Text`
   font-size: 18px;
   padding-left: 15px;
-  margin-bottom: 5px;
+  margin: 15px 0;
   color: ${({ theme: { brandColor } }) => brandColor};
 `
 const TableContainer = styled.View`
@@ -34,7 +37,9 @@ const RowContainer = styled.View`
   align-items: center;
   border: 0.5px solid #0000001c;
 `
-const Label = styled.Text``
+const Label = styled.Text`
+  ${themeText}
+`
 const TypesContainer = styled.View<{ valueMaxWidth: number }>`
   flex-direction: row;
   justify-content: flex-end;
