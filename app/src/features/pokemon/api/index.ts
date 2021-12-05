@@ -12,6 +12,5 @@ export const searchForPokemon = (
   sortDirection?: SortDirection,
   sortKey?: 'name' | 'id'
 ): Pokemon[] => {
-  console.log('running')
   return handleFilterAndSort({ baseList: pokemon, sortDirection, FuseSearch: PokemonSearch, searchTerm, sortKey })
 }

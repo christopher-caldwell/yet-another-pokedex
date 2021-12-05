@@ -1,6 +1,7 @@
-import React, { FC, useCallback } from 'react'
+import React, { FC, useCallback, useMemo } from 'react'
 import styled from 'styled-components/native'
 import { FlatList, ListRenderItem, SafeAreaView } from 'react-native'
+import { useDebounce } from '@caldwell619/react-hooks'
 
 import { useInput } from '@/hooks/useInput'
 import { searchForPokemon } from '@/features/pokemon/api'
@@ -11,7 +12,8 @@ import { ListPokemon } from './components/ListPokemon'
 
 export const PokemonSearch: FC = () => {
   const [searchTerm, bindSearchTerm] = useInput('')
-  const results = searchForPokemon(searchTerm)
+  const debouncedSearchTerm = useDebounce(searchTerm, 500)
+  const results = useMemo(() => searchForPokemon(debouncedSearchTerm), [debouncedSearchTerm])
   const renderItem = useCallback<ListRenderItem<Pokemon>>(({ item }) => <ListPokemon {...item} />, [])
 
   return (
@@ -26,6 +28,7 @@ export const PokemonSearch: FC = () => {
 
 const Container = styled(SafeAreaView)`
   ${themeView}
+  min-height: 100%;
   width: 100%;
 `
 

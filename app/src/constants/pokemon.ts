@@ -2869,7 +2869,7 @@ export const pokemon: Pokemon[] = [
     notVeryEffectiveTypes: ['bug', 'steel', 'fire', 'grass', 'ice', 'fairy'],
     noEffectTypes: [],
     description:
-      'Entei embodies the passion of magma. This Pokémon is\nthought to have been born in the eruption of a volcano.\nIt sends up massive bursts of fire that utterly consume all\nthat they touch.',
+      'Entei embodies the passion of magma. This Pokémon is thought to have been born in the eruption of a volcano.\nIt sends up massive bursts of fire that utterly consume all that they touch.',
     imageUrl: require('@/assets/official-artwork/244.png'),
   },
   {
@@ -2881,7 +2881,7 @@ export const pokemon: Pokemon[] = [
     notVeryEffectiveTypes: ['steel', 'fire', 'water', 'ice'],
     noEffectTypes: [],
     description:
-      'Suicune embodies the compassion of a pure spring of water.\nIt runs across the land with gracefulness. This Pokémon has\nthe power to purify dirty water.',
+      'Suicune embodies the compassion of a pure spring of water. It runs across the land with gracefulness.\nThis Pokémon has the power to purify dirty water.',
     imageUrl: require('@/assets/official-artwork/245.png'),
   },
   {

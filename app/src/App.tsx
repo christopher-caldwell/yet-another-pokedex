@@ -4,6 +4,7 @@ import { Appearance } from 'react-native'
 import { ThemeProvider as StyledComponentsProvider } from 'styled-components/native'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { ThemeProvider as NativeThemeProvider } from 'react-native-elements'
+import { PortalProvider } from '@gorhom/portal'
 
 import Router from '@/router'
 import { themeMap } from '@/constants/themes'
@@ -29,7 +30,9 @@ const App = () => {
       <NavigationContainer theme={navTheme}>
         <NativeThemeProvider useDark={colorScheme === 'dark'}>
           <StyledComponentsProvider theme={theme}>
-            <Router />
+            <PortalProvider>
+              <Router />
+            </PortalProvider>
           </StyledComponentsProvider>
         </NativeThemeProvider>
       </NavigationContainer>

@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import Pokemon from '@/pages/pokemon'
-import TypeMap from '@/pages/type-map'
+import TypeTool from '@/pages/type-tool'
 
 const Tab = createBottomTabNavigator()
 const Router: FC = () => {
@@ -15,8 +15,8 @@ const Router: FC = () => {
         options={{ tabBarIcon: ({ color }) => <MaterialCommunityIcons name='pokeball' size={26} color={color} /> }}
       />
       <Tab.Screen
-        name='Type Planner'
-        component={TypeMap}
+        name='Type Tool'
+        component={TypeTool}
         options={{ tabBarIcon: ({ color }) => <MaterialCommunityIcons name='battlenet' size={26} color={color} /> }}
       />
     </Tab.Navigator>

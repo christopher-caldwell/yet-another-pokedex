@@ -29,19 +29,9 @@ export interface HandleFilterAndSortArgs<TData> {
   sortKey?: keyof TData | null
   searchTerm?: string | null
 }
-export const handleFilterAndSort = <TData>({
-  baseList,
-  sortDirection,
-  FuseSearch,
-  searchTerm,
-  sortKey,
-}: HandleFilterAndSortArgs<TData>) => {
-  let results = baseList
-  if (searchTerm) results = handleSearchResults(FuseSearch, searchTerm, baseList)
-  if (sortKey) {
-    results = arraySort(results, sortKey as string, { reverse: sortDirection === SortDirection.Desc })
-  }
-  return results
+export const handleFilterAndSort = <TData>({ baseList, FuseSearch, searchTerm }: HandleFilterAndSortArgs<TData>) => {
+  if (searchTerm) return handleSearchResults(FuseSearch, searchTerm, baseList)
+  return baseList
 }
 
 export * from './search'
