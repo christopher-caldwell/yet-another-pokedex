@@ -7,7 +7,7 @@ import { types } from '@/constants'
 import { TypePill } from '@/features/pokemon/details/components/Type'
 import { useBottomSheet } from '@/hooks'
 import { themeView } from '@/constants/styles'
-import { getMostEffectiveTypes, getNoEffectTypes, pruneFightWithTypes } from '@/features/type-tool/api'
+import { getMostEffectiveTypes, getNoEffectTypes, pruneAvoidTypes, pruneFightWithTypes } from '@/features/type-tool/api'
 import { PokemonType, PokemonTypeName } from '@/interfaces'
 
 /** Shows which type to use against another type. For example, if your opponent is water, and you know that already, this view shows which moves to use against water */
@@ -20,7 +20,7 @@ const TypeTool: FC = () => {
 
   const mostEffectiveTypes = getMostEffectiveTypes(chosenTypes)
   const superEffectiveTypes = pruneFightWithTypes(chosenTypes)
-  const avoidTypes = pruneFightWithTypes(chosenTypes)
+  const avoidTypes = pruneAvoidTypes(chosenTypes)
   const noEffectTypes = getNoEffectTypes(chosenTypes)
 
   const handleOpenSheet = (incomingEditTarget: 1 | 2): void => {
@@ -56,30 +56,10 @@ const TypeTool: FC = () => {
               <Button type='clear' title='Choose type 2' onPress={() => handleOpenSheet(2)} />
             )}
           </TypeDisplayContainer>
-          <Text h4>Most Effective ( 400% damage )</Text>
-          {mostEffectiveTypes.map(type => (
-            <TypePillContainer key={type}>
-              <TypePill type={type} />
-            </TypePillContainer>
-          ))}
-          <Text h4>Super Effective ( 200% damage )</Text>
-          {superEffectiveTypes.map(type => (
-            <TypePillContainer key={type}>
-              <TypePill type={type} />
-            </TypePillContainer>
-          ))}
-          <Text h4>Not Very Effective ( 50% damage )</Text>
-          {avoidTypes.map(type => (
-            <TypePillContainer key={type}>
-              <TypePill type={type} />
-            </TypePillContainer>
-          ))}
-          <Text h4>No Effect ( 0% damage )</Text>
-          {noEffectTypes.map(type => (
-            <TypePillContainer key={type}>
-              <TypePill type={type} />
-            </TypePillContainer>
-          ))}
+          <EffectDisplay leftLabel='Most Effective' rightLabel='( 400% damage )' targetTypes={mostEffectiveTypes} />
+          <EffectDisplay leftLabel='Super Effective' rightLabel='( 200% damage )' targetTypes={superEffectiveTypes} />
+          <EffectDisplay leftLabel='Not Very Effective' rightLabel='( 50% damage )' targetTypes={avoidTypes} />
+          <EffectDisplay leftLabel='No Effect' rightLabel='( 0% damage )' targetTypes={noEffectTypes} />
         </Container>
       </Root>
       <Sheet>
@@ -94,6 +74,7 @@ const TypeTool: FC = () => {
           )}
           <ClearButtonContainer>
             <Button
+              disabled={!type1 && !type2}
               type='clear'
               titleStyle={{ color: '#fc3434' }}
               title='Clear Type'
@@ -106,6 +87,39 @@ const TypeTool: FC = () => {
   )
 }
 
+const EffectDisplayTitleContainer = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`
+const EffectDisplay: FC<{ targetTypes: PokemonTypeName[]; leftLabel: string; rightLabel: string }> = ({
+  leftLabel,
+  rightLabel,
+  targetTypes,
+}) => {
+  if (!targetTypes.length) return null
+  return (
+    <>
+      <EffectDisplayTitleContainer>
+        <Text h4>{leftLabel}</Text>
+        <Text h4>{rightLabel}</Text>
+      </EffectDisplayTitleContainer>
+      <EffectDisplayTypeContainer>
+        {targetTypes.map(type => (
+          <TypePillContainer key={type}>
+            <TypePill type={type} />
+          </TypePillContainer>
+        ))}
+      </EffectDisplayTypeContainer>
+    </>
+  )
+}
+
+const EffectDisplayTypeContainer = styled.View`
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-bottom: 10%;
+`
+
 const TypeDisplayText = styled(Text)<{ textColor?: string }>`
   color: ${({ textColor, theme: { primaryTextColor } }) => textColor || primaryTextColor};
 `
@@ -114,6 +128,7 @@ const TypeDisplayContainer = styled.View`
   margin-top: 15%;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 20%;
 `
 
 const TypeSelectionContainer = styled.View`
@@ -131,7 +146,7 @@ const TypePillContainer = styled.TouchableOpacity`
 const Root = styled.SafeAreaView`
   ${themeView}
 `
-const Container = styled.View`
+const Container = styled.ScrollView`
   ${themeView}
   min-height: 100%;
   padding: 5%;
