@@ -35,11 +35,27 @@ const TypeTool: FC = () => {
     closeSheet()
   }
 
+  const clearSelections = () => {
+    setType1(undefined)
+    setType2(undefined)
+  }
+
   return (
     <>
       <Root>
         <Container>
-          <Text h4>Opposing Pokemon's types</Text>
+          <Header>
+            <Text h4>Opposing types</Text>
+            <ClearButtonTopContainer>
+              <ClearButton
+                titleStyle={clearButtonTitleStyle}
+                isHidden={!type1 && !type2}
+                type='clear'
+                title='Clear'
+                onPress={clearSelections}
+              />
+            </ClearButtonTopContainer>
+          </Header>
           <TypeDisplayContainer>
             {type1 ? (
               <TypeDisplayText textColor={type1.color} onPress={() => handleOpenSheet(1)} h3>
@@ -73,11 +89,11 @@ const TypeTool: FC = () => {
             )
           )}
           <ClearButtonContainer>
-            <Button
+            <ClearButton
               disabled={!type1 && !type2}
               type='clear'
-              titleStyle={{ color: '#fc3434' }}
-              title='Clear Type'
+              title='Clear'
+              titleStyle={clearButtonTitleStyle}
               onPress={() => handleTypeEdit(undefined)}
             />
           </ClearButtonContainer>
@@ -87,6 +103,21 @@ const TypeTool: FC = () => {
   )
 }
 
+const clearButtonTitleStyle = {
+  color: '#fc3434',
+}
+const ClearButton = styled(Button)<{ isHidden?: boolean }>`
+  display: ${({ isHidden }) => (isHidden ? 'none' : 'flex')};
+`
+const ClearButtonTopContainer = styled.View`
+  height: 35px;
+`
+
+const Header = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`
 const EffectDisplayTitleContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;
